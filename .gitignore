@@ -1,0 +1,15 @@
+﻿# dependencies
+/node_modules
+
+# production
+/dist
+
+# env files
+# .env
+# .env.development
+
+# misc
+.DS_Store
+
+# IDE
+/.vscode

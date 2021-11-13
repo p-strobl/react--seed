@@ -1,0 +1,23 @@
+{
+  "name": "react--seed",
+  "version": "1.0.0",
+  "description": "React Seed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p-strobl/react--seed.git"
+  },
+  "keywords": [
+    "React",
+    "Seed"
+  ],
+  "author": "Philipp Strobl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/p-strobl/react--seed/issues"
+  },
+  "homepage": "https://github.com/p-strobl/react--seed#readme"
+}
