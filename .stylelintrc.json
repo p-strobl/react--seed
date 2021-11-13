@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order"
+  ],
+  "extends": "stylelint-config-sass-guidelines",
+  "rules": {
+    "no-empty-first-line": true,
+    "no-extra-semicolons": true,
+    "no-missing-end-of-source-newline": true,
+    "max-empty-lines": 1,
+    "max-nesting-depth": 3,
+    "order/properties-alphabetical-order": true,
+    "scss/at-import-no-partial-leading-underscore": null,
+    "scss/at-import-partial-extension-blacklist": null,
+    "string-quotes": "double"
+  }
+}
