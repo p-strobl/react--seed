@@ -1,0 +1,65 @@
+@mixin respond-as-of($breakpoint-indices) {
+  $for-xs: "only screen and (max-width: 599.98px)";
+  $for-sm: "only screen and (min-width: 600px)";
+  $for-md: "only screen and (min-width: 900px)";
+  $for-lg: "only screen and (min-width: 1200px)";
+  $for-xl: "only screen and (min-width: 1440px)";
+  $for-xxl: "only screen and (min-width: 1920px)";
+
+  @if $breakpoint-indices {
+    @for $i from 1 through length($breakpoint-indices) {
+      $breakpoint-index: nth($breakpoint-indices, $i);
+
+      @if $breakpoint-index == 0 {
+        @media #{$for-xs} { @content; }
+      } @else if $breakpoint-index == 1 {
+        @media #{$for-sm} { @content; }
+      } @else if $breakpoint-index == 2 {
+        @media #{$for-md} { @content; }
+      } @else if $breakpoint-index == 3 {
+        @media #{$for-lg} { @content; }
+      } @else if $breakpoint-index == 4 {
+        @media #{$for-xl} { @content; }
+      } @else if $breakpoint-index == 5 {
+        @media #{$for-xxl} { @content; }
+      } @else {
+        @error "ERROR: respond-as-of was called with invalid arguments: " + $breakpoint-indices;
+      }
+    }
+  } @else {
+    @error "ERROR: respond-as-of was called with invalid arguments: " + $breakpoint-indices;
+  }
+}
+
+@mixin respond-only-for($breakpoint-indices) {
+  $for-xs: "only screen and (max-width: 599.98px)";
+  $for-sm: "only screen and (min-width: 600px) and (max-width: 899.98px)";
+  $for-md: "only screen and (min-width: 900px) and (max-width: 1199.98px)";
+  $for-lg: "only screen and (min-width: 1200px) and (max-width: 1439.98px)";
+  $for-xl: "only screen and (min-width: 1440px) and (max-width: 1919.98px)";
+  $for-xxl: "only screen and (min-width: 1920px)";
+
+  @if $breakpoint-indices {
+    @for $i from 1 through length($breakpoint-indices) {
+      $breakpoint-index: nth($breakpoint-indices, $i);
+
+      @if $breakpoint-index == 0 {
+        @media #{$for-xs} { @content; }
+      } @else if $breakpoint-index == 1 {
+        @media #{$for-sm} { @content; }
+      } @else if $breakpoint-index == 2 {
+        @media #{$for-md} { @content; }
+      } @else if $breakpoint-index == 3 {
+        @media #{$for-lg} { @content; }
+      } @else if $breakpoint-index == 4 {
+        @media #{$for-xl} { @content; }
+      } @else if $breakpoint-index == 5 {
+        @media #{$for-xxl} { @content; }
+      } @else {
+        @error "ERROR: respond-as-of was called with invalid arguments: " + $breakpoint-indices;
+      }
+    }
+  } @else {
+    @error "ERROR: respond-as-of was called with invalid arguments: " + $breakpoint-indices;
+  }
+}

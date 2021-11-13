@@ -1,0 +1,28 @@
+﻿@import "Scss/_utilities.scss";
+
+.module-container {
+  padding: 0 4%;
+  position: relative;
+
+  @include respond-as-of(2) {
+    padding: 0 8%;
+  }
+
+  @include respond-as-of(3) {
+    padding: 0 10%;
+  }
+
+  @include respond-as-of(4) {
+    padding: 0 12%;
+  }
+
+  @include respond-as-of(5) {
+    padding: 0 18%;
+  }
+}
+
+.module-container--fluid {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}

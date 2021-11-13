@@ -1,0 +1,253 @@
+﻿$breakpoints: (sm, 600px), (md, 900px), (lg, 1200px), (xl, 1440px), (xxl, 1920px);
+$breakpoints-mobile: 599.98px;
+
+// Default grid-container
+// Example grid-container-8
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  @include respond-as-of(0 1) {
+    grid-column-gap: 1%;
+  }
+
+  @include respond-as-of(2 3) {
+    grid-column-gap: 2%;
+  }
+
+  @include respond-as-of(4 5) {
+    grid-column-gap: 4%;
+  }
+}
+
+// Iterated grid-container
+@for $i from 1 through 13 {
+  .grid-container-#{$i} {
+    display: grid;
+    grid-template-columns: repeat($i, 1fr);
+
+    @include respond-as-of(0 1) {
+      grid-column-gap: 1%;
+    }
+
+    @include respond-as-of(2 3) {
+      grid-column-gap: 2%;
+    }
+
+    @include respond-as-of(4 5) {
+      grid-column-gap: 4%;
+    }
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+//  Grid col
+//-------------------------------------------------------------------------------------------------------
+@for $i from 1 through 15 {
+  .col-#{$i} {
+    grid-column: $i;
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+// Col Start
+//-------------------------------------------------------------------------------------------------------
+@for $i from 1 through 15 {
+  .col-start-#{$i} {
+    grid-column-start: $i;
+  }
+}
+
+// xs viewport col start
+// Example col-start-xs-2,
+@media only screen and (max-width: $breakpoints-mobile) {
+  @for $i from 1 through 15 {
+    .col-start-xs-#{$i} {
+      grid-column-start: $i;
+    }
+  }
+}
+
+// sm, md, lg viewport col start
+// Example col-start-sm-2,
+// Example col-start-md-2,
+// Example col-start-lg-2,
+// Example col-start-xl-2,
+// sm, md, lg, xl viewport col start
+@each $breakpoint, $width in $breakpoints {
+  @media only screen and (min-width: $width) {
+    @for $i from 1 through 15 {
+      .col-start-#{$breakpoint}-#{$i} {
+        grid-column-start: $i;
+      }
+    }
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+// Col End
+//-------------------------------------------------------------------------------------------------------
+// Example col-end-12,
+@for $i from 1 through 15 {
+  .col-end-#{$i} {
+    grid-column-end: $i;
+  }
+}
+
+// xs viewport col end
+// Example col-end-xs-12,
+@media only screen and (max-width: $breakpoints-mobile) {
+  @for $i from 1 through 15 {
+    .col-end-xs-#{$i} {
+      grid-column-end: $i;
+    }
+  }
+}
+
+// sm, md, lg xl viewport col end
+// Example col-end-sm-12,
+// Example col-end-md-12,
+// Example col-end-lg-12,
+// Example col-end-xl-12,
+// Example col-end-xxl-12,
+@each $breakpoint, $width in $breakpoints {
+  @media only screen and (min-width: $width) {
+    @for $i from 1 through 15 {
+      .col-end-#{$breakpoint}-#{$i} {
+        grid-column-end: $i;
+      }
+    }
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+// Col Span
+//-------------------------------------------------------------------------------------------------------
+
+@for $i from 1 through 12 {
+  .col-span-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+// xs viewport col span
+// Example col-span-xs-2,
+@media only screen and (max-width: $breakpoints-mobile) {
+  @for $i from 1 through 15 {
+    .col-span-xs-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+// sm, md, lg viewport col span
+// Example col-span-sm-2,
+// Example col-span-md-2,
+// Example col-span-lg-2,
+// Example col-span-xl-2,
+// sm, md, lg, xl viewport col span
+@each $breakpoint, $width in $breakpoints {
+  @media only screen and (min-width: $width) {
+    @for $i from 1 through 15 {
+      .col-span-#{$breakpoint}-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+//  Grid row
+//-------------------------------------------------------------------------------------------------------
+@for $i from 1 through 15 {
+  .row-#{$i} {
+    grid-row: $i;
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+// Row Start
+//-------------------------------------------------------------------------------------------------------
+@for $i from 1 through 13 {
+  .row-start-#{$i} {
+    grid-row-start: $i;
+  }
+}
+
+// xs viewport row start
+@media only screen and (max-width: $breakpoints-mobile) {
+  @for $i from 1 through 13 {
+    .row-start-xs-#{$i} {
+      grid-row-start: $i;
+    }
+  }
+}
+
+// sm, md, lg, xl xxl viewport row start
+@each $breakpoint, $width in $breakpoints {
+  @media only screen and (min-width: $width) {
+    @for $i from 1 through 13 {
+      .row-start-#{$breakpoint}-#{$i} {
+        grid-row-start: $i;
+      }
+    }
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+// Row End
+//-------------------------------------------------------------------------------------------------------
+@for $i from 1 through 13 {
+  .row-end-#{$i} {
+    grid-row-end: $i;
+  }
+}
+
+// xs viewport row
+@media only screen and (max-width: $breakpoints-mobile) {
+  @for $i from 1 through 13 {
+    .row-end-xs-#{$i} {
+      grid-row-end: $i;
+    }
+  }
+}
+
+// sm, md, lg, xl, xxl viewport row
+@each $breakpoint, $width in $breakpoints {
+  @media only screen and (min-width: $width) {
+    @for $i from 1 through 13 {
+      .row-end-#{$breakpoint}-#{$i} {
+        grid-row-end: $i;
+      }
+    }
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+// Row Span
+//-------------------------------------------------------------------------------------------------------
+@for $i from 1 through 13 {
+  .row-span-#{$i} {
+    grid-row: span $i;
+  }
+}
+
+// xs viewport row
+@media only screen and (max-width: $breakpoints-mobile) {
+  @for $i from 1 through 13 {
+    .row-span-xs-#{$i} {
+      grid-row: span $i;
+    }
+  }
+}
+
+// sm, md, lg, xl, xxl viewport row
+@each $breakpoint, $width in $breakpoints {
+  @media only screen and (min-width: $width) {
+    @for $i from 1 through 13 {
+      .row-span-#{$breakpoint}-#{$i} {
+        grid-row: span $i;
+      }
+    }
+  }
+}
