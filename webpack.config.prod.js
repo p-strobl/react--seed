@@ -4,7 +4,6 @@ const webpack = require("webpack");
 const Dotenv = require("dotenv-webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssUrlRelativePlugin = require("css-url-relative-plugin");
 
 module.exports = {
   // Providing the mode configuration option tells webpack to use its built-in optimizations.
@@ -19,21 +18,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true, // index.html page will be served in place of any 404 responses.
-    contentBase: resolve(__dirname, "./dist"), // Will use working directory to serve content.
-    // publicPath: "./", // The bundled files will be available in the browser under this path.
-    open: true, // Opens Browser window after server start.
-    overlay: true, // Shows a full-screen overlay in the browser when there are compiler errors or warnings.
-    writeToDisk: true, // Tells devServer to write generated assets to the disk.
-    stats: {
-      // The stats option lets you precisely control what bundle information gets displayed
-      assets: true,
-      children: false,
-      colors: true,
-      entrypoints: true,
-      outputPath: false,
-      modules: false,
-      source: false,
-    },
+    open: true,
   },
   devtool: "source-map", // Creates a source-map for better debugging.
   // These options change how modules are resolved
@@ -53,21 +38,10 @@ module.exports = {
       PublicAssets: resolve(__dirname, "./public/assets"),
       Scss: resolve(__dirname, "./src/scss"),
     },
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".css", ".scss", ".ttf", ".png", "..."],
+    extensions: [".js", ".jsx", ".json", ".css", ".scss", ".ttf", ".png", "..."],
   },
   module: {
     rules: [
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-        use: {
-          loader: "ts-loader",
-          options: {
-            sourceMap: false,
-          },
-        },
-      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -77,15 +51,6 @@ module.exports = {
             sourceMap: false,
           },
         },
-      },
-      {
-        test: /\.html$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "html-loader",
-          },
-        ],
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -102,16 +67,16 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(png|jpe?g|gif|ico|webmanifest|xml|svg)$/,
-        type: 'asset/resource',
-        assetModuleFilename: 'assets/images/[hash][ext][query]'
-      },
-      {
-        test: /\.(ttf|svg|woff|woff2|otf|eot)$/,
-        type: 'asset/resource',
-        assetModuleFilename: 'assets/fonts/[name].[ext]',
-      },
+      // {
+      //   test: /\.(png|jpe?g|gif|ico|webmanifest|xml|svg)$/,
+      //   type: 'asset/resource',
+      //   assetModuleFilename: 'assets/images/'
+      // },
+      // {
+      //   test: /\.(ttf|svg|woff|woff2|otf|eot)$/,
+      //   type: 'asset/resource',
+      //   assetModuleFilename: 'assets/fonts/',
+      // },
     ],
   },
   plugins: [
@@ -125,8 +90,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "assets/css/bundle.css",
     }),
-    // Convert css url(...) to relative path
-    new CssUrlRelativePlugin(),
     // Process environment variables
     new Dotenv({
       path: resolve(__dirname, "./.env"),
