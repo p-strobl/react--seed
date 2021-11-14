@@ -27,6 +27,13 @@ module.exports = {
         additionalHooks: "useRecoilCallback",
       },
     ],
+    "react/function-component-definition": [
+      1,
+      {
+        namedComponents: "function-declaration",
+        unnamedComponents: "function-expression",
+      },
+    ],
     "func-names": 0,
     "import/no-unresolved": ["off", { caseSensitive: false }],
     "import/no-extraneous-dependencies": "off",

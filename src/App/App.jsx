@@ -20,5 +20,5 @@ export function App() {
     >
       <div>Hell World</div>
     </div>
-  )
+  );
 }
