@@ -1,5 +1,5 @@
-﻿@import "Scss/site/_module-settings.scss";
-@import "Scss/site/_grid.scss";
+﻿@use "Scss/site/_module-settings";
+@use "Scss/site/_grid";
 
 // a[target="_blank"] {
 

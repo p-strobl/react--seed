@@ -1,14 +1,14 @@
-@import "Scss/reset/_reset.scss";
-@import "Scss/font/_fonts.scss";
-@import "Scss/_utilities.scss";
+@use "Scss/reset/_reset";
+@use "Scss/font/_fonts";
+@use "Scss/_utilities";
 
-// Import Variables
-@import "Scss/variables/_colors.scss";
-@import "Scss/variables/_emojis.scss";
-@import "Scss/variables/_font-icons.scss";
+// use Variables
+@use "Scss/variables/_colors";
+@use "Scss/variables/_emojis";
+@use "Scss/variables/_font-icons";
 
-// Import Site Settings
-@import "Scss/site/_site.scss";
-@import "Scss/site/_anchor.scss";
-@import "Scss/site/_spacings.scss";
-@import "Scss/site/_utility-classes.scss";
+// use Site Settings
+@use "Scss/site/_site";
+@use "Scss/site/_anchor";
+@use "Scss/site/_spacings";
+@use "Scss/site/_utility-classes";

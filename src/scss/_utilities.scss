@@ -1,9 +1,9 @@
-﻿// Import Mixins
-@import "Scss/mixins/_decorations.scss";
-@import "Scss/mixins/_flex.scss";
-@import "Scss/mixins/_font.scss";
-@import "Scss/mixins/_grid.scss";
-@import "Scss/mixins/_module.scss";
-@import "Scss/mixins/_responsive.scss";
-@import "Scss/mixins/_utilities.scss";
-@import "Scss/mixins/_vendor-prefix.scss";
+﻿// use Mixins
+@use "Scss/mixins/_decorations";
+@use "Scss/mixins/_flex";
+@use "Scss/mixins/_font";
+@use "Scss/mixins/_grid";
+@use "Scss/mixins/_module";
+@use "Scss/mixins/_responsive";
+@use "Scss/mixins/_utilities";
+@use "Scss/mixins/_vendor-prefix";

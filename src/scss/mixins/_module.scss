@@ -1,4 +1,4 @@
-@import "./_responsive.scss";
+@use "./_responsive";
 
 @mixin module-container($fluid: null) {
   @if $fluid == "fluid" {
