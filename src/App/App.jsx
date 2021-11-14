@@ -8,6 +8,7 @@ import "./App.scss";
 export function App() {
   const uiClasses = {
     app: "app",
+
     noTouch: "no-touch",
   };
 
@@ -19,5 +20,5 @@ export function App() {
     >
       <div>Hell World</div>
     </div>
-  );
+  )
 }

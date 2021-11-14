@@ -4,17 +4,22 @@ const Dotenv = require("dotenv-webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+let mode = "development";
+
+if (process.env.NODE_ENV === "production") {
+  mode = "production";
+}
+
 module.exports = {
   // Providing the mode configuration option tells webpack to use its built-in optimizations.
-  mode: "development",
+  mode: mode,
   // An entry point indicates which module webpack should use
   entry: "./src/index.js",
   // The output property tells webpack where to emit the bundles it creates and file name
   output: {
     filename: "assets/js/bundle.js", // Bundle name.
-    path: resolve(__dirname, "./dist"), // Bundle root.
+    path: resolve(__dirname, "dist"), // Bundle root.
     crossOriginLoading: "anonymous",
-    assetModuleFilename: 'assets/images/[name].[ext]'
   },
   devServer: {
     historyApiFallback: true, // index.html page will be served in place of any 404 responses.
@@ -24,20 +29,20 @@ module.exports = {
   devtool: "source-map", // Creates a source-map for better debugging.
   // These options change how modules are resolved
   resolve: {
-    modules: [resolve(__dirname, "./src"), "node_modules"],
+    modules: [resolve(__dirname, "src"), "node_modules"],
     alias: {
-      Assets: resolve(__dirname, "./src/assets"),
-      Atoms: resolve(__dirname, "./src/atoms"),
-      Components: resolve(__dirname, "./src/components"),
-      Container: resolve(__dirname, "./src/container"),
-      Context: resolve(__dirname, "./src/context"),
-      Data: resolve(__dirname, "./src/data"),
-      Helper: resolve(__dirname, "./src/helper"),
-      Images: resolve(__dirname, "./src/assets/images"),
-      Modules: resolve(__dirname, "./src/modules"),
-      Pages: resolve(__dirname, "./src/pages"),
-      PublicAssets: resolve(__dirname, "./public/assets"),
-      Scss: resolve(__dirname, "./src/scss"),
+      Assets: resolve(__dirname, "src/assets"),
+      Atoms: resolve(__dirname, "src/atoms"),
+      Components: resolve(__dirname, "src/components"),
+      Container: resolve(__dirname, "src/container"),
+      Context: resolve(__dirname, "src/context"),
+      Data: resolve(__dirname, "src/data"),
+      Helper: resolve(__dirname, "src/helper"),
+      Images: resolve(__dirname, "src/assets/images"),
+      Modules: resolve(__dirname, "src/modules"),
+      Pages: resolve(__dirname, "src/pages"),
+      PublicAssets: resolve(__dirname, "public/assets"),
+      Scss: resolve(__dirname, "src/scss"),
     },
     extensions: [".js", ".jsx", ".json", ".css", ".scss", ".ttf", ".png"],
   },
@@ -66,14 +71,33 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|ico|webmanifest|xml|svg)$/,
+        test: /\.(svg)$/,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/svg/[hash][ext][query]'
+        }
       },
-      // {
-      //   test: /\.(ttf|svg|woff|woff2|otf|eot)$/,
-      //   type: 'asset/resource',
-      //   assetModuleFilename: 'assets/fonts/[name].[ext]',
-      // },
+      {
+        test: /\.(ico|webmanifest)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/icons/[hash][ext][query]'
+        }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[hash][ext][query]'
+        }
+      },
+      {
+        test: /\.(ttf|woff|woff2|otf|eot)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[hash][ext][query]'
+        }
+      },
     ],
   },
   plugins: [
