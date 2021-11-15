@@ -4,10 +4,10 @@
   @if $fluid == "fluid" {
     width: 100%;
   } @else {
-    @include respond-as-of(1) {
+    @include _responsive.respond-as-of(1) {
       width: 90%;
     }
-    @include respond-as-of(2) {
+    @include _responsive.respond-as-of(2) {
       width: 80%;
     }
 
@@ -19,7 +19,7 @@
 }
 
 @mixin module-margin-top() {
-  @include respond-as-of(2) {
+  @include _responsive.respond-as-of(2) {
     margin-top: 40px;
   }
 
@@ -27,7 +27,7 @@
 }
 
 @mixin module-margin-top-bottom() {
-  @include respond-as-of(2) {
+  @include _responsive.respond-as-of(2) {
     margin-bottom: 40px;
     margin-top: 40px;
   }

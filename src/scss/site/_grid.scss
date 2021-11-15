@@ -1,42 +1,44 @@
-﻿$breakpoints: (sm, 600px), (md, 900px), (lg, 1200px), (xl, 1440px), (xxl, 1920px);
+﻿@use "../mixins/responsive";
+
+$breakpoints: (sm, 600px), (md, 900px), (lg, 1200px), (xl, 1440px), (xxl, 1920px);
 $breakpoints-mobile: 599.98px;
 
 // Default grid-container
 // Example grid-container-8
 .grid-container {
+  @include responsive.respond-as-of(0 1) {
+    column-gap: 1%;
+  }
+
+  @include responsive.respond-as-of(2 3) {
+    column-gap: 2%;
+  }
+
+  @include responsive.respond-as-of(4 5) {
+    column-gap: 4%;
+  }
+
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-
-  @include respond-as-of(0 1) {
-    grid-column-gap: 1%;
-  }
-
-  @include respond-as-of(2 3) {
-    grid-column-gap: 2%;
-  }
-
-  @include respond-as-of(4 5) {
-    grid-column-gap: 4%;
-  }
 }
 
 // Iterated grid-container
 @for $i from 1 through 13 {
   .grid-container-#{$i} {
+    @include responsive.respond-as-of(0 1) {
+      column-gap: 1%;
+    }
+
+    @include responsive.respond-as-of(2 3) {
+      column-gap: 2%;
+    }
+
+    @include responsive.respond-as-of(4 5) {
+      column-gap: 4%;
+    }
+
     display: grid;
     grid-template-columns: repeat($i, 1fr);
-
-    @include respond-as-of(0 1) {
-      grid-column-gap: 1%;
-    }
-
-    @include respond-as-of(2 3) {
-      grid-column-gap: 2%;
-    }
-
-    @include respond-as-of(4 5) {
-      grid-column-gap: 4%;
-    }
   }
 }
 

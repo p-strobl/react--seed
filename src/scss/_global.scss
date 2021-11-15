@@ -1,14 +1,8 @@
-@use "Scss/reset/_reset";
-@use "Scss/font/_fonts";
-@use "Scss/_utilities";
+@use "./reset";
+@use "./font";
 
-// use Variables
-@use "Scss/variables/_colors";
-@use "Scss/variables/_emojis";
-@use "Scss/variables/_font-icons";
+// Variables
+@use "./variables";
 
-// use Site Settings
-@use "Scss/site/_site";
-@use "Scss/site/_anchor";
-@use "Scss/site/_spacings";
-@use "Scss/site/_utility-classes";
+// Site Settings
+@use "./site";

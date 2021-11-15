@@ -1,22 +1,22 @@
-﻿@use "Scss/_utilities";
+﻿@use "../mixins/responsive";
 
 .module-container {
   padding: 0 4%;
   position: relative;
 
-  @include respond-as-of(2) {
+  @include responsive.respond-as-of(2) {
     padding: 0 8%;
   }
 
-  @include respond-as-of(3) {
+  @include responsive.respond-as-of(3) {
     padding: 0 10%;
   }
 
-  @include respond-as-of(4) {
+  @include responsive.respond-as-of(4) {
     padding: 0 12%;
   }
 
-  @include respond-as-of(5) {
+  @include responsive.respond-as-of(5) {
     padding: 0 18%;
   }
 }

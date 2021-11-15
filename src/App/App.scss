@@ -1,4 +1,9 @@
 ﻿@use "Scss/_global";
+@use "Scss/mixins";
 
 .app {
+}
+
+.test {
+  @include mixins.grid(repeat(4, 1fr), 5px, auto, 5px)
 }

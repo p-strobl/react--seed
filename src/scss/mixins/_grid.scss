@@ -1,19 +1,20 @@
 // Syntax: @include grid(repeat(4, 1fr), 5px, auto, 5px);
 @mixin grid($columns: "", $col-gap: "", $row: "", $row-gap: "") {
+  @if $col-gap != ""  {
+    column-gap: $col-gap;
+  }
+
   display: grid;
 
   @if $columns != "" {
     grid-template-columns: $columns;
-  }
-  @if $col-gap != ""  {
-    grid-column-gap: $col-gap;
   }
 
   @if $row != ""  {
     grid-template-rows: $row;
   }
   @if $row-gap != "" {
-    grid-row-gap: $row-gap;
+    row-gap: $row-gap;
   }
 }
 
