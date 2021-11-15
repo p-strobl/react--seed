@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === "production") {
 
 module.exports = {
   // Providing the mode configuration option tells webpack to use its built-in optimizations.
-  mode: mode,
+  mode,
   // An entry point indicates which module webpack should use
   entry: "./src/index.js",
   // The output property tells webpack where to emit the bundles it creates and file name
@@ -72,31 +72,31 @@ module.exports = {
       },
       {
         test: /\.(svg)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'assets/svg/[hash][ext][query]'
-        }
+          filename: "assets/svg/[hash][ext][query]",
+        },
       },
       {
         test: /\.(ico|webmanifest)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'assets/icons/[hash][ext][query]'
-        }
+          filename: "assets/icons/[hash][ext][query]",
+        },
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'assets/images/[hash][ext][query]'
-        }
+          filename: "assets/images/[hash][ext][query]",
+        },
       },
       {
         test: /\.(ttf|woff|woff2|otf|eot)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'assets/fonts/[hash][ext][query]'
-        }
+          filename: "assets/fonts/[hash][ext][query]",
+        },
       },
     ],
   },
