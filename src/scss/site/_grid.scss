@@ -7,15 +7,15 @@ $breakpoints-mobile: 599.98px;
 // Example grid-container-8
 .grid-container {
   @include responsive.respond-as-of(0 1) {
-    column-gap: 1%;
+    column-gap: 10px;
   }
 
   @include responsive.respond-as-of(2 3) {
-    column-gap: 2%;
+    column-gap: 15px;
   }
 
   @include responsive.respond-as-of(4 5) {
-    column-gap: 4%;
+    column-gap: 20px;
   }
 
   display: grid;
@@ -26,15 +26,15 @@ $breakpoints-mobile: 599.98px;
 @for $i from 1 through 13 {
   .grid-container-#{$i} {
     @include responsive.respond-as-of(0 1) {
-      column-gap: 1%;
+      column-gap: 10px;
     }
 
     @include responsive.respond-as-of(2 3) {
-      column-gap: 2%;
+      column-gap: 15px;
     }
 
     @include responsive.respond-as-of(4 5) {
-      column-gap: 4%;
+      column-gap: 20px;
     }
 
     display: grid;

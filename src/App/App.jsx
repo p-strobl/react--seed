@@ -13,12 +13,30 @@ export function App() {
   };
 
   return (
-    <div
-      className={Class(`${uiClasses.app}`, {
-        [`${uiClasses.noTouch}`]: !isTouchDevice(),
-      })}
-    >
-      <div>Hell World</div>
+    <div className={Class(`${uiClasses.app}`, { [`${uiClasses.noTouch}`]: !isTouchDevice() })}>
+      <header>
+        <section className="u-section">
+          <div className="u-container">
+            <div className="grid-container">
+              <div className="col-span-6">Header Content</div>
+              <div className="col-span-6">Header Content</div>
+            </div>
+          </div>
+        </section>
+        <section className="u-section--e2e">
+          <div className="u-container">
+            <div className="grid-container">
+              <div className="col-span-6">Header Content</div>
+            </div>
+          </div>
+        </section>
+      </header>
+      <main>
+        <div className="module-container--fluid">Main Content</div>
+      </main>
+      <footer>
+        <div>Footer Content</div>
+      </footer>
     </div>
   );
 }
