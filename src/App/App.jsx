@@ -17,25 +17,26 @@ export function App() {
       <header>
         <section className="u-section">
           <div className="u-container">
-            <div className="grid-container">
-              <div className="col-span-6">Header Content</div>
-              <div className="col-span-6">Header Content</div>
+            <div className="u-grid">
+              <div className="u-col-span-6">Header Content</div>
+              <div className="u-col-span-6">Header Content</div>
             </div>
           </div>
         </section>
         <section className="u-section--e2e">
           <div className="u-container">
-            <div className="grid-container">
-              <div className="col-span-6">Header Content</div>
+            <div className="u-grid">
+              <div className="u-col-span-6">Header Content</div>
+              <div className="u-col-12">Header Content</div>
             </div>
           </div>
         </section>
       </header>
       <main>
-        <div className="module-container--fluid">Main Content</div>
+        <section className="u-section--e2e">Main Content</section>
       </main>
       <footer>
-        <div>Footer Content</div>
+        <section className="u-section--e2e">Footer Content</section>
       </footer>
     </div>
   );

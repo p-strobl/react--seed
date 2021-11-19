@@ -1,0 +1,36 @@
+﻿@use "../mixins/responsive";
+
+.u-section {
+  display: block;
+  margin: 0 auto;
+  max-width: 1920px;
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.u-section--e2e {
+  @extend .u-section;
+  max-width: 100%;
+}
+
+.u-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @include responsive.respond-as-of(1) {
+    column-gap: 30px;
+  }
+
+  @include responsive.respond-as-of(2 3) {
+    column-gap: 45px;
+  }
+
+  @include responsive.respond-as-of(4 5) {
+    column-gap: 70px;
+  }
+}
